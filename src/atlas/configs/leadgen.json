@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "templateId": "leadgen",
+  "locale": "pt-BR",
+  "branding": {
+    "name": "Vértice",
+    "shortName": "V",
+    "tagline": "CRESCIMENTO COM DIREÇÃO"
+  },
+  "theme": {
+    "mode": "light",
+    "accent": "#ee693d",
+    "accentText": "#ffffff",
+    "background": "#f6f3ed",
+    "surface": "#ffffff",
+    "text": "#18232d",
+    "muted": "#73808e",
+    "line": "#152a3b12",
+    "serif": false,
+    "radius": 14
+  },
+  "content": {
+    "headline": "Sua próxima fase\ncomeça com clareza.",
+    "description": "Organize sua operação comercial e encontre os próximos passos para vender melhor.",
+    "eyebrow": "CRESCIMENTO COM DIREÇÃO",
+    "cta": "Começar agora",
+    "heroImage": "abstract.webp"
+  },
+  "collections": {
+    "benefits": [
+      {
+        "id": "1",
+        "title": "Diagnóstico do seu negócio",
+        "description": "Entenda onde estão as oportunidades."
+      },
+      {
+        "id": "2",
+        "title": "Plano de ação objetivo",
+        "description": "Prioridades claras para sua próxima fase."
+      },
+      {
+        "id": "3",
+        "title": "Acompanhamento próximo",
+        "description": "Evolua com um processo que cabe na sua rotina."
+      }
+    ]
+  }
+}
