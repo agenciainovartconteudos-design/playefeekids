@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @font-face {
   font-family: Manrope;
   src: url("https://lovekingcode.lovable.app/atlas/manrope.woff2") format("woff2");
@@ -122,10 +123,11 @@ textarea:focus-visible {
   gap: 9px;
   border: 1px solid transparent;
   border-radius: 10px;
-  min-height: 44px;
-  padding: 11px 19px;
-  font-size: 14px;
-  font-weight: 750;
+  min-height: 50px;
+  padding: 14px 26px;
+  font-family: "Montserrat", Manrope, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 1.4;
   transition:
     transform 0.2s,
@@ -143,6 +145,7 @@ textarea:focus-visible {
 .btn.primary {
   background: var(--accent);
   color: var(--on-accent);
+  animation: pulse-scale 2.4s ease-in-out infinite;
 }
 .btn.secondary {
   border-color: var(--line);
@@ -1303,14 +1306,15 @@ tbody tr:hover {
   background: var(--ink);
   color: var(--bg);
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 650;
   letter-spacing: 0.01em;
-  padding: 11px 16px;
+  padding: 16px 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
+  animation: pulse-scale 2.6s ease-in-out infinite;
 }
 .lead-topbar .live-dot {
   background: var(--accent);
@@ -1318,8 +1322,8 @@ tbody tr:hover {
 }
 @media (max-width: 760px) {
   .lead-topbar {
-    font-size: 11px;
-    padding: 9px 12px;
+    font-size: 13px;
+    padding: 13px 16px;
   }
 }
 .web-card {
@@ -1530,6 +1534,15 @@ tbody tr:hover {
 @keyframes marquee {
   to {
     transform: translateX(-30%);
+  }
+}
+@keyframes pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -6653,132 +6666,4 @@ tbody tr:hover {
   font-size: 15px;
   color: var(--muted);
 }
-/* Offer / pricing band for lead pages */
-.offer-band {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 55px;
-  align-items: center;
-  background: var(--ink);
-  color: var(--bg);
-  border-radius: 22px;
-  padding: 50px;
-  position: relative;
-  overflow: hidden;
-}
-.offer-visual {
-  border-radius: 16px;
-  overflow: hidden;
-  background: color-mix(in srgb, var(--surface) 8%, transparent);
-}
-.offer-image {
-  width: 100%;
-  display: block;
-  border-radius: 16px;
-}
-.offer-content .eyebrow {
-  color: var(--accent);
-}
-.offer-content h2 {
-  font-size: clamp(27px, 3vw, 37px);
-  font-weight: 650;
-  line-height: 1.2;
-  color: inherit;
-}
-.offer-description {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--bg) 72%, transparent);
-  margin: 16px 0 24px;
-  line-height: 1.8;
-  max-width: 460px;
-}
-.offer-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-}
-.offer-price {
-  font-size: 44px;
-  font-weight: 750;
-  letter-spacing: -0.04em;
-  color: var(--accent);
-}
-.offer-price-old {
-  font-size: 16px;
-  text-decoration: line-through;
-  color: color-mix(in srgb, var(--bg) 50%, transparent);
-}
-.offer-installment {
-  display: block;
-  font-size: 12px;
-  color: color-mix(in srgb, var(--bg) 65%, transparent);
-  margin-top: 8px;
-}
-.offer-bonuses {
-  display: grid;
-  gap: 16px;
-  margin: 30px 0 28px;
-  padding-top: 26px;
-  border-top: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
-}
-.offer-bonus-item {
-  display: flex;
-  gap: 13px;
-  align-items: start;
-}
-.offer-bonus-item svg {
-  color: var(--accent);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.offer-bonus-item h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: inherit;
-}
-.offer-bonus-item p {
-  font-size: 12px;
-  color: color-mix(in srgb, var(--bg) 65%, transparent);
-  margin-top: 4px;
-  line-height: 1.7;
-}
-.offer-content > .btn {
-  margin-top: 8px;
-}
-.offer-guarantee {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 26px;
-}
-.offer-guarantee img {
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.offer-guarantee p {
-  display: flex;
-  align-items: start;
-  gap: 8px;
-  font-size: 12px;
-  color: color-mix(in srgb, var(--bg) 70%, transparent);
-  line-height: 1.8;
-}
-.offer-guarantee p svg {
-  color: var(--accent);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-@media (max-width: 900px) {
-  .offer-band {
-    grid-template-columns: 1fr;
-    padding: 32px;
-    gap: 30px;
-    border-radius: 18px;
-  }
-  .offer-price {
-    font-size: 36px;
-  }
-}
-.co
+/* 
