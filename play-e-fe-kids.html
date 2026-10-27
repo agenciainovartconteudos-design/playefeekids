@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play e Fé Kids — Material Bíblico Infantil para Memorizar Versículos</title>
+<meta name="description" content="Material digital com atividades, jogos e versículos bíblicos para ensinar seu filho a amar a Palavra de Deus brincando.">
+<style>
+:root{
+  --bg:#eef3ff;--surface:#ffffff;--ink:#101b36;--muted:#5b6b89;--line:#0f1f3d14;
+  --accent:#f0b429;--on-accent:#15224a;--radius:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:Manrope,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+img{max-width:100%;display:block;border-radius:12px;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,p{margin:0;}
+.wrap{max-width:1200px;margin:auto;padding:0 6%;}
+.topbar{background:var(--ink);color:var(--bg);text-align:center;font-size:14px;font-weight:700;padding:14px 20px;}
+.topbar span{color:var(--accent);}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 6%;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-0.03em;}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:900;}
+nav.links{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:600;flex-wrap:wrap;}
+nav.links a{color:var(--muted);}
+nav.links a:hover{color:var(--accent);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;border-radius:10px;min-height:48px;padding:13px 24px;font-weight:700;font-size:15px;background:var(--accent);color:var(--on-accent);cursor:pointer;transition:.2s;}
+.btn:hover{transform:translateY(-2px);}
+.btn.secondary{background:var(--surface);border-color:var(--line);color:var(--ink);}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:700;background:color-mix(in srgb,var(--accent) 14%,transparent);color:#9c6b1d;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
+section.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;padding:50px 6% 80px;align-items:center;max-width:1200px;margin:auto;}
+.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.1;letter-spacing:-0.03em;white-space:pre-line;margin:18px 0;}
+.hero p.desc{color:var(--muted);font-size:16px;max-width:460px;margin-bottom:22px;}
+.check-list{list-style:none;padding:0;margin:22px 0;display:grid;gap:12px;font-size:14px;color:var(--muted);}
+.check-list li{display:flex;gap:10px;align-items:start;}
+.check-list li:before{content:'✓';color:var(--accent);font-weight:900;flex-shrink:0;}
+.mini-proof{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;margin-top:28px;}
+.hero-img-box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;}
+.hero-img-box small{display:block;text-align:center;margin-top:10px;font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;}
+section{padding:70px 6%;max-width:1200px;margin:auto;}
+.section-head{margin-bottom:34px;}
+.section-head .eyebrow{text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:12px;}
+.section-head h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2;max-width:680px;}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;}
+.card h3{font-size:19px;margin:16px 0 10px;}
+.card p{color:var(--muted);font-size:14px;}
+.num{font-size:12px;color:var(--muted);letter-spacing:.1em;}
+.offer-band{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:36px;display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;}
+.offer-price{font-size:38px;font-weight:800;letter-spacing:-0.03em;color:var(--ink);}
+.offer-price-old{font-size:15px;color:var(--muted);text-decoration:line-through;margin-left:10px;}
+.bonus-item{display:flex;gap:12px;margin:14px 0;}
+.bonus-item h4{font-size:15px;margin-bottom:4px;}
+.bonus-item p{font-size:13px;color:var(--muted);}
+.guarantee{display:flex;gap:12px;align-items:center;margin-top:20px;font-size:12px;color:var(--muted);}
+.guarantee img{width:52px;height:52px;border-radius:50%;}
+.testimonial p.quote{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.testimonial .who{display:flex;gap:10px;align-items:center;}
+.testimonial img{width:38px;height:38px;border-radius:50%;object-fit:cover;}
+.testimonial h4{font-size:14px;}
+.testimonial span{font-size:12px;color:var(--muted);}
+.stars{color:var(--accent);font-size:13px;margin-bottom:14px;}
+.cta-band{background:var(--accent);color:var(--on-accent);border-radius:18px;padding:50px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;}
+.cta-band h2{font-size:32px;max-width:560px;}
+.cta-band .btn{background:var(--on-accent);color:var(--accent);}
+faq-item{display:block;}
+.faq{border-top:1px solid var(--line);}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0;}
+.faq summary{cursor:pointer;font-weight:700;font-size:15px;}
+.faq p{color:var(--muted);font-size:14px;margin-top:12px;line-height:1.8;}
+footer.site{border-top:1px solid var(--line);padding:40px 6%;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;max-width:1200px;margin:auto;}
+footer.site small{color:var(--muted);font-size:11px;}
+.download-note{text-align:center;color:var(--muted);font-size:12px;margin-top:24px;}
+@media(max-width:860px){
+  section.hero{grid-template-columns:1fr;padding-top:30px;}
+  .three-grid{grid-template-columns:1fr;}
+  .offer-band{grid-template-columns:1fr;}
+  nav.links{display:none;}
+  .cta-band{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">Mais de 500 famílias já garantiram o <span>Play e Fé Kids</span> — oferta de lançamento por tempo limitado.</div>
+<header class="site">
+  <a href="#top" class="brand"><span class="brand-mark">PF</span>Play e Fé Kids</a>
+  <nav class="links">
+    <a href="#beneficios">Benefícios</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#duvidas">Dúvidas</a>
+  </nav>
+  <a href="#comprar" class="btn">Quero garantir agora</a>
+</header>
+<main id="top">
+<section class="hero">
+  <div>
+    <span class="badge"><span class="dot"></span>MATERIAL DIGITAL PARA FAMÍLIAS CRISTÃS</span>
+    <h1>Ensine seu filho a amar
+a Palavra de Deus brincando</h1>
+    <p class="desc">Um material digital cheio de atividades, jogos e versículos bíblicos para fixar a Palavra no coração das crianças de forma leve e divertida.</p>
+    <ul class="check-list">
+      <li>Mais de 30 atividades para imprimir ou usar no tablet</li>
+      <li>Versículos bíblicos explicados em linguagem de criança</li>
+      <li>Pensado para o dia a dia da família, sem complicar a rotina</li>
+    </ul>
+    <a href="#comprar" class="btn">Quero garantir meu acesso agora</a>
+    <div class="mini-proof">+500 famílias já usam o Play e Fé Kids em casa — oferta de lançamento por tempo limitado</div>
+  </div>
+  <div class="hero-img-box">
+    <img src="https://raw.githubusercontent.com/agenciainovartconteudos-design/playefeekids/main/src/assets/upload-1793063399099-1.jpg" alt="Cartaz do material Play e Fé Kids mostrando a atividade Memoriza Versículos">
+    <small>Assim é uma das atividades reais do material</small>
+  </div>
+</section>
+
+<section id="comprar">
+  <div class="card" style="max-width:520px;margin:auto;text-align:center;">
+    <span class="badge">GARANTA O SEU AGORA</span>
+    <h2 style="margin:18px 0;">Leve a Palavra para o coração do seu filho.</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:22px;">Esta é uma cópia estática da página para envio/consulta. Para preencher o formulário e garantir seu acesso, use o site publicado.</p>
+    <a href="#" class="btn" style="width:100%;">Quero garantir meu acesso agora</a>
+  </div>
+</section>
+
+<section id="beneficios">
+  <div class="section-head">
+    <span class="eyebrow">TUDO PENSADO PARA AS CRIANÇAS</span>
+    <h2>Uma forma divertida de aprender a Palavra.</h2>
+  </div>
+  <div class="three-grid">
+    <div class="card"><span class="num">01</span><h3>Memoriza Versículos com Alegria</h3><p>Cards e desafios lúdicos que fixam a Palavra no coração das crianças, do jeito que elas aprendem melhor: brincando.</p></div>
+    <div class="card"><span class="num">02</span><h3>Atividades para Toda Semana</h3><p>Conteúdo pronto para imprimir ou usar no tablet, com brincadeiras guiadas para cada momento em família.</p></div>
+    <div class="card"><span class="num">03</span><h3>Fé Vivida em Casa</h3><p>Momentos simples que aproximam pais e filhos de Deus, sem complicar a rotina da família.</p></div>
+  </div>
+</section>
+
+<section id="oferta">
+  <div class="offer-band">
+    <img src="https://raw.githubusercontent.com/agenciainovartconteudos-design/playefeekids/main/src/assets/offer-bundle.webp" alt="Conjunto do material Play e Fé Kids: tablet, folhas para imprimir e livro de histórias">
+    <div>
+      <span class="badge">OFERTA DE LANÇAMENTO</span>
+      <h2 style="margin:16px 0;font-size:28px;">Garanta hoje com condição especial de lançamento</h2>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:18px;">Acesso completo ao material Play e Fé Kids, com bônus exclusivos para quem garantir agora.</p>
+      <div><span class="offer-price">R$ 37,90</span><span class="offer-price-old">R$ 97,00</span></div>
+      <p style="color:var(--muted);font-size:13px;margin-top:6px;">ou em até 3x de R$ 13,90 no cartão</p>
+      <div style="margin-top:20px;">
+        <div class="bonus-item"><div><h4>E-book Orações para Dormir</h4><p>20 orações curtas para fazer parte da rotina da sua família antes de dormir.</p></div></div>
+        <div class="bonus-item"><div><h4>Pôsteres para Imprimir</h4><p>Cartazes coloridos com versículos para decorar o quarto do seu filho.</p></div></div>
+        <div class="bonus-item"><div><h4>Grupo de Apoio no WhatsApp</h4><p>Receba dicas semanais de atividades e converse com outras famílias.</p></div></div>
+      </div>
+      <a href="#comprar" class="btn" style="width:100%;margin-top:10px;">Quero garantir com essa oferta</a>
+      <div class="guarantee">
+        <img src="https://raw.githubusercontent.com/agenciainovartconteudos-design/playefeekids/main/src/assets/guarantee-seal.png" alt="Selo de garantia de satisfação de 7 dias">
+        <p>Garantia incondicional de 7 dias. Não amou? Devolvemos 100% do seu dinheiro, sem perguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="section-head">
+    <span class="eyebrow">SIMPLES DO PEDIDO AO PRIMEIRO BRINCAR</span>
+    <h2>Comece hoje mesmo, em poucos minutos.</h2>
+  </div>
+  <div class="three-grid">
+    <div class="card"><span class="num">01</span><h3>Você garante seu acesso</h3><p>Preenchimento rápido e simples, direto nesta página.</p></div>
+    <div class="card"><span class="num">02</span><h3>Recebe o material completo</h3><p>Atividades, versículos e jogos prontos para usar.</p></div>
+    <div class="card"><span class="num">03</span><h3>Brinca e aprende em família</h3><p>Momentos leves que aproximam seu filho da fé.</p></div>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="section-head">
+    <span class="eyebrow">QUEM JÁ TRANSFORMOU A ROTINA EM CASA</span>
+    <h2>Famílias que já vivem esse momento especial.</h2>
+  </div>
+  <div class="three-grid">
+    <div class="card testimonial"><div class="stars">★★★★★</div><p class="quote">“Minha filha pede para fazer as atividades todo dia depois da escola. Ela já decorou 4 versículos sem esforço, brincando.”</p><div class="who"><img src="https://raw.githubusercontent.com/agenciainovartconteudos-design/playefeekids/main/src/assets/testimonial-1.webp" alt="Foto de Camila Rodrigues"><div><h4>Camila Rodrigues</h4><span>Mãe da Beatriz, 6 anos</span></div></div></div>
+    <div class="card testimonial"><div class="stars">★★★★★</div><p class="quote">“Transformou nosso momento de família. Em 15 minutos por noite, meu filho aprende a Palavra e a gente se diverte junto.”</p><div class="who"><img src="https://raw.githubusercontent.com/agenciainovartconteudos-design/playefeekids/main/src/assets/testimonial-2.webp" alt="Foto de Thiago Almeida"><div><h4>Thiago Almeida</h4><span>Pai do Davi, 8 anos</span></div></div></div>
+    <div class="card testimonial"><div class="stars">★★★★★</div><p class="quote">“Material lindo, fácil de usar no tablet e nas folhas impressas. Vale cada centavo pelo que trouxe para a nossa rotina.”</p><div class="who"><img src="https://raw.githubusercontent.com/agenciainovartconteudos-design/playefeekids/main/src/assets/testimonial-3.webp" alt="Foto de Patrícia Souza"><div><h4>Patrícia Souza</h4><span>Mãe de gêmeos, 5 anos</span></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-band">
+    <div><h2>Não deixe para depois: garanta agora o acesso completo.</h2><p style="opacity:.85;font-size:14px;margin-top:10px;">Mais de 500 famílias já aproximam seus filhos da Palavra brincando com o Play e Fé Kids. Bônus de lançamento válido por tempo limitado.</p></div>
+    <a href="#comprar" class="btn">Quero garantir meu acesso agora</a>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="section-head">
+    <span class="eyebrow">ANTES DE GARANTIR O SEU</span>
+    <h2>Tire suas dúvidas sobre o material.</h2>
+  </div>
+  <div class="faq">
+    <details><summary>Para qual idade é indicado?</summary><p>O material foi pensado para crianças de 4 a 10 anos, com atividades que se adaptam a diferentes fases.</p></details>
+    <details><summary>Preciso imprimir as atividades?</summary><p>Não. Você pode usar direto no tablet ou celular, ou imprimir se preferir atividades no papel.</p></details>
+    <details><summary>O que acontece depois do formulário?</summary><p>Você recebe a confirmação na tela e, em seguida, o material por e-mail.</p></details>
+  </div>
+  <p class="download-note">Esta é uma exportação estática (HTML puro) da landing page Play e Fé Kids, gerada para download/envio. O site publicado possui formulário funcional e dados dinâmicos.</p>
+</section>
+</main>
+<footer class="site">
+  <div><div class="brand"><span class="brand-mark">PF</span>Play e Fé Kids</div><p style="color:var(--muted);font-size:12px;margin-top:10px;">FÉ QUE SE APRENDE BRINCANDO</p></div>
+  <div style="text-align:right;"><small>Exportação em HTML puro · Play e Fé Kids<br>Imagens ilustrativas e dados conforme a landing page.</small></div>
+</footer>
+</body>
+</html>
