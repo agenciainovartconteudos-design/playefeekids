@@ -6,6 +6,8 @@ import {
   Check,
   CheckCircle2,
   Mail,
+  Star,
+  Users,
 } from "lucide-react";
 import type { TemplateProps } from "../types";
 import { list } from "../types";
@@ -28,6 +30,23 @@ export default function Leadgen({ config }: TemplateProps) {
     document
       .getElementById("comprar")
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  const testimonials = [
+    {
+      name: "Camila Rodrigues",
+      role: "Mãe da Beatriz, 6 anos",
+      text: "Minha filha pede para fazer as atividades todo dia depois da escola. Ela já decorou 4 versículos sem esforço, brincando.",
+    },
+    {
+      name: "Thiago Almeida",
+      role: "Pai do Davi, 8 anos",
+      text: "Transformou nosso momento de família. Em 15 minutos por noite, meu filho aprende a Palavra e a gente se diverte junto.",
+    },
+    {
+      name: "Patrícia Souza",
+      role: "Mãe de gêmeos, 5 anos",
+      text: "Material lindo, fácil de usar no tablet e nas folhas impressas. Vale cada centavo pelo que trouxe para a nossa rotina.",
+    },
+  ];
   return (
     <>
       <WebsiteNav
@@ -63,6 +82,13 @@ export default function Leadgen({ config }: TemplateProps) {
                 Pensado para o dia a dia da família, sem complicar a rotina
               </li>
             </ul>
+            <div className="mini-proof">
+              <Users size={16} />
+              <span>
+                +500 famílias já usam o Play e Fé Kids em casa — oferta de
+                lançamento por tempo limitado
+              </span>
+            </div>
             <div className="lead-mini-chart">
               <img
                 src={heroHighlight}
@@ -235,6 +261,58 @@ export default function Leadgen({ config }: TemplateProps) {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+        <section className="section" id="depoimentos">
+          <SectionHead
+            eyebrow="QUEM JÁ TRANSFORMOU A ROTINA EM CASA"
+            title="Famílias que já vivem esse momento especial."
+          />
+          <div className="three-grid">
+            {testimonials.map((t) => (
+              <article className="feature-card" data-reveal key={t.name}>
+                <div className="inline" style={{ marginBottom: 18 }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={16}
+                      style={{ color: "var(--accent)", fill: "var(--accent)" }}
+                    />
+                  ))}
+                </div>
+                <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.8 }}>
+                  “{t.text}”
+                </p>
+                <div className="inline" style={{ marginTop: 22 }}>
+                  <span className="avatar" style={{ width: 38, height: 38 }}>
+                    {t.name.charAt(0)}
+                  </span>
+                  <div>
+                    <h3 style={{ fontSize: 14 }}>{t.name}</h3>
+                    <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 2 }}>
+                      {t.role}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="section">
+          <div className="cta-band" data-reveal>
+            <div>
+              <h2>
+                Não deixe para depois: garanta agora o acesso completo.
+              </h2>
+              <p>
+                Mais de 500 famílias já aproximam seus filhos da Palavra
+                brincando com o Play e Fé Kids. Bônus de lançamento válido
+                por tempo limitado.
+              </p>
+            </div>
+            <Button onClick={focusForm}>
+              Quero garantir meu acesso agora
+            </Button>
           </div>
         </section>
         <section className="section" id="duvidas">
