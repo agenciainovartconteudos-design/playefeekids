@@ -404,6 +404,7 @@ export default function Leadgen({ config }: TemplateProps) {
           <div style={{ textAlign: "center", marginTop: 32 }}>
             <Button
               variant="secondary"
+              style={{ background: "#dc2626", borderColor: "#dc2626", color: "#ffffff" }}
               onClick={() =>
                 downloadText(
                   "play-e-fe-kids-dados.json",
