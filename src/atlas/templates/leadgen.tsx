@@ -1,13 +1,11 @@
 import { useState } from "react";
 import {
-  Target,
-  ChartNoAxesCombined,
-  Compass,
+  BookOpenCheck,
+  Smile,
+  HeartHandshake,
   Check,
   CheckCircle2,
   Mail,
-  TrendingUp,
-  Layers,
 } from "lucide-react";
 import type { TemplateProps } from "../types";
 import { list } from "../types";
@@ -19,25 +17,27 @@ import {
   FAQ,
   Badge,
   useToast,
-  Brand,
 } from "../shared/ui";
+import heroHighlight from "@/assets/upload-1793063399099-1.jpg";
+import { supabase } from "@/integrations/supabase/client";
 export default function Leadgen({ config }: TemplateProps) {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const toast = useToast();
   const focusForm = () =>
     document
-      .getElementById("diagnostico")
+      .getElementById("comprar")
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   return (
     <>
       <WebsiteNav
         config={config}
         links={[
-          { label: "Como funciona", href: "#processo" },
-          { label: "O que você recebe", href: "#beneficios" },
+          { label: "Benefícios", href: "#beneficios" },
+          { label: "Como funciona", href: "#como-funciona" },
           { label: "Dúvidas", href: "#duvidas" },
         ]}
-        cta="Quero meu diagnóstico"
+        cta="Quero garantir agora"
         onAction={focusForm}
       />
       <main id="main" className="web-main">
@@ -45,53 +45,45 @@ export default function Leadgen({ config }: TemplateProps) {
           <div className="lead-hero-copy hero-enter">
             <Badge tone="accent">
               <span className="live-dot" />
-              ESTRATÉGIA PARA O SEU PRÓXIMO PASSO
+              {config.content.eyebrow}
             </Badge>
             <h1 className="hero-title">{config.content.headline}</h1>
             <p className="hero-copy">{config.content.description}</p>
             <ul className="check-list">
               <li>
                 <Check />
-                Encontre as oportunidades do seu negócio
+                Mais de 30 atividades para imprimir ou usar no tablet
               </li>
               <li>
                 <Check />
-                Tenha prioridades claras para agir
+                Versículos bíblicos explicados em linguagem de criança
               </li>
               <li>
                 <Check />
-                Construa um processo comercial consistente
+                Pensado para o dia a dia da família, sem complicar a rotina
               </li>
             </ul>
             <div className="lead-mini-chart">
-              <div className="inline">
-                <span className="big-icon">
-                  <TrendingUp size={25} />
-                </span>
-                <div>
-                  <b>Da visão à ação.</b>
-                  <p>Um plano que conversa com a sua realidade.</p>
-                </div>
-              </div>
-              <div className="lead-chart-bars" aria-hidden="true">
-                {[26, 41, 35, 64, 73, 92, 100].map((h, i) => (
-                  <i
-                    key={i}
-                    style={{ height: h, animationDelay: `${i * 0.08}s` }}
-                  />
-                ))}
-              </div>
-              <span>CLAREZA · DIREÇÃO · MOVIMENTO</span>
+              <img
+                src={heroHighlight}
+                alt="Cartaz do material Play e Fé Kids mostrando a atividade Memoriza Versículos, com fundo azul e letras douradas"
+                style={{
+                  width: "100%",
+                  display: "block",
+                  borderRadius: 10,
+                }}
+                loading="eager"
+              />
+              <span style={{ marginTop: 14, display: "block" }}>
+                ASSIM É UMA DAS ATIVIDADES REAIS DO MATERIAL
+              </span>
             </div>
           </div>
-          <div
-            className="lead-form-card hero-enter hero-delay"
-            id="diagnostico"
-          >
+          <div className="lead-form-card hero-enter hero-delay" id="comprar">
             {sent ? (
               <div className="success-card">
                 <CheckCircle2 size={50} />
-                <h2>Seu próximo passo está aqui.</h2>
+                <h2>Seu pedido está garantido!</h2>
                 <p>
                   Solicitação demonstrativa registrada nesta tela. Nenhum
                   contato real será feito.
@@ -102,60 +94,80 @@ export default function Leadgen({ config }: TemplateProps) {
               </div>
             ) : (
               <>
-                <span className="eyebrow">VAMOS CONHECER SEU NEGÓCIO</span>
+                <span className="eyebrow">GARANTA O SEU AGORA</span>
                 <h2>
-                  Uma conversa pode
-                  <br />
-                  mudar sua direção.
+                  Leve a Palavra para
+                  <br />o coração do seu filho.
                 </h2>
-                <p>Preencha para experimentar o diagnóstico inicial.</p>
+                <p>Preencha para garantir acesso ao material completo.</p>
                 <form
                   className="form-stack"
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
+                    const data = new FormData(e.currentTarget);
+                    const name = String(data.get("name") || "");
+                    const email = String(data.get("email") || "");
+                    const childAge = String(data.get("childAge") || "");
+                    setLoading(true);
+                    const { error } = await supabase.from("contact_messages").insert({
+                      name,
+                      email,
+                      message: `Idade da criança: ${childAge}`,
+                      source: "landing-play-e-fe-kids",
+                    });
+                    setLoading(false);
+                    if (error) {
+                      toast(
+                        "Não conseguimos registrar agora. Tente novamente em instantes.",
+                      );
+                      return;
+                    }
                     setSent(true);
-                    toast("Formulário validado. Nenhum dado foi enviado.");
+                    toast("Pedido recebido! Em breve você receberá o material por e-mail.");
                   }}
                 >
                   <label className="field">
                     <span>Seu nome</span>
-                    <input placeholder="Como podemos chamar você?" required />
-                  </label>
-                  <label className="field">
-                    <span>E-mail profissional</span>
                     <input
-                      type="email"
-                      placeholder="voce@empresa.com"
+                      name="name"
+                      placeholder="Como podemos chamar você?"
                       required
                     />
                   </label>
                   <label className="field">
-                    <span>Nome da empresa</span>
-                    <input placeholder="Seu negócio" required />
+                    <span>Seu melhor e-mail</span>
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="voce@email.com"
+                      required
+                    />
                   </label>
                   <label className="field">
-                    <span>Seu maior desafio hoje</span>
-                    <select required defaultValue="">
+                    <span>Idade da criança</span>
+                    <select name="childAge" required defaultValue="">
                       <option value="" disabled>
                         Selecione uma opção
                       </option>
-                      <option>Gerar novas oportunidades</option>
-                      <option>Organizar o processo comercial</option>
-                      <option>Melhorar a comunicação</option>
-                      <option>Planejar a próxima fase</option>
+                      <option>4 a 6 anos</option>
+                      <option>7 a 8 anos</option>
+                      <option>9 a 10 anos</option>
+                      <option>Mais de uma criança em casa</option>
                     </select>
                   </label>
                   <label className="lead-consent">
                     <input type="checkbox" required />
-                    Entendo que este formulário é uma demonstração local.
+                    Concordo em receber contato sobre o material Play e Fé
+                    Kids.
                   </label>
-                  <Button type="submit" className="full">
-                    Quero dar o próximo passo
+                  <Button type="submit" className="full" disabled={loading}>
+                    {loading ? "Enviando..." : "Quero garantir meu acesso agora"}
                   </Button>
                 </form>
                 <span className="lead-form-note">
                   <Mail size={14} />
-                  Use dados fictícios para testar o fluxo.
+                  Seus dados ficam seguros e são usados apenas para enviar o
+                  material.
                 </span>
               </>
             )}
@@ -163,17 +175,17 @@ export default function Leadgen({ config }: TemplateProps) {
         </section>
         <section className="section lead-benefits" id="beneficios">
           <SectionHead
-            eyebrow="DIREÇÃO EM CADA ETAPA"
-            title="Menos dúvida. Mais movimento."
+            eyebrow="TUDO PENSADO PARA AS CRIANÇAS"
+            title="Uma forma divertida de aprender a Palavra."
           />
           <div className="three-grid">
             {list(config, "benefits").map((b, i) => (
               <article className="feature-card" key={b.id} data-reveal>
                 {
                   [
-                    <Compass size={28} />,
-                    <Target size={28} />,
-                    <ChartNoAxesCombined size={28} />,
+                    <BookOpenCheck size={28} />,
+                    <Smile size={28} />,
+                    <HeartHandshake size={28} />,
                   ][i]
                 }
                 <span className="hero-number">0{i + 1}</span>
@@ -183,28 +195,28 @@ export default function Leadgen({ config }: TemplateProps) {
             ))}
           </div>
         </section>
-        <section className="section" id="processo">
+        <section className="section" id="como-funciona">
           <div className="lead-process">
             <div>
               <span className="eyebrow">
-                SIMPLES DO INÍCIO AO PRÓXIMO PASSO
+                SIMPLES DO PEDIDO AO PRIMEIRO BRINCAR
               </span>
               <h2>
-                Um processo feito
+                Comece hoje mesmo,
                 <br />
-                para fazer sentido.
+                em poucos minutos.
               </h2>
               <p>
-                Entender, planejar e acompanhar. Sem complicar o que pode ser
-                claro.
+                Garanta seu acesso, baixe o material e já comece a brincar e
+                aprender com seu filho ainda hoje.
               </p>
-              <Button onClick={focusForm}>Começar pelo diagnóstico</Button>
+              <Button onClick={focusForm}>Garantir meu acesso</Button>
             </div>
             <div>
               {[
-                "Você conta onde está",
-                "A gente entende o cenário",
-                "Construímos a próxima etapa",
+                "Você garante seu acesso",
+                "Recebe o material completo",
+                "Brinca e aprende em família",
               ].map((s, i) => (
                 <div className="process-step" key={s}>
                   <span>0{i + 1}</span>
@@ -213,9 +225,9 @@ export default function Leadgen({ config }: TemplateProps) {
                     <p>
                       {
                         [
-                          "Suas metas, seus desafios e o momento do negócio.",
-                          "Uma visão cuidadosa dos pontos de melhoria.",
-                          "Prioridades e ações para sair do lugar.",
+                          "Preenchimento rápido e simples, direto nesta página.",
+                          "Atividades, versículos e jogos prontos para usar.",
+                          "Momentos leves que aproximam seu filho da fé.",
                         ][i]
                       }
                     </p>
@@ -227,22 +239,22 @@ export default function Leadgen({ config }: TemplateProps) {
         </section>
         <section className="section" id="duvidas">
           <SectionHead
-            eyebrow="ANTES DE COMEÇAR"
-            title="Uma boa conversa começa com clareza."
+            eyebrow="ANTES DE GARANTIR O SEU"
+            title="Tire suas dúvidas sobre o material."
           />
           <FAQ
             items={[
               {
-                q: "Para quem é o diagnóstico?",
-                a: "Para quem deseja organizar a operação comercial, melhorar a comunicação ou planejar uma nova etapa do negócio.",
+                q: "Para qual idade é indicado?",
+                a: "O material foi pensado para crianças de 4 a 10 anos, com atividades que se adaptam a diferentes fases.",
+              },
+              {
+                q: "Preciso imprimir as atividades?",
+                a: "Não. Você pode usar direto no tablet ou celular, ou imprimir se preferir atividades no papel.",
               },
               {
                 q: "O que acontece depois do formulário?",
-                a: "Nesta demonstração, você verá uma confirmação local. No produto real, conecte o formulário ao seu CRM e ao seu processo de contato.",
-              },
-              {
-                q: "Preciso ter tudo definido?",
-                a: "Não. A conversa inicial serve para organizar o cenário e encontrar um ponto de partida.",
+                a: "Nesta demonstração, você verá uma confirmação local. No produto real, conecte o formulário ao seu sistema de entrega.",
               },
             ]}
           />

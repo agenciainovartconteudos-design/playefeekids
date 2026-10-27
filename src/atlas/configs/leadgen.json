@@ -3,45 +3,45 @@
   "templateId": "leadgen",
   "locale": "pt-BR",
   "branding": {
-    "name": "Vértice",
-    "shortName": "V",
-    "tagline": "CRESCIMENTO COM DIREÇÃO"
+    "name": "Play e Fé Kids",
+    "shortName": "PF",
+    "tagline": "FÉ QUE SE APRENDE BRINCANDO"
   },
   "theme": {
     "mode": "light",
-    "accent": "#ee693d",
-    "accentText": "#ffffff",
-    "background": "#f6f3ed",
+    "accent": "#f0b429",
+    "accentText": "#15224a",
+    "background": "#eef3ff",
     "surface": "#ffffff",
-    "text": "#18232d",
-    "muted": "#73808e",
-    "line": "#152a3b12",
+    "text": "#101b36",
+    "muted": "#5b6b89",
+    "line": "#0f1f3d14",
     "serif": false,
-    "radius": 14
+    "radius": 16
   },
   "content": {
-    "headline": "Sua próxima fase\ncomeça com clareza.",
-    "description": "Organize sua operação comercial e encontre os próximos passos para vender melhor.",
-    "eyebrow": "CRESCIMENTO COM DIREÇÃO",
-    "cta": "Começar agora",
-    "heroImage": "abstract.webp"
+    "headline": "Ensine seu filho a amar\na Palavra de Deus brincando",
+    "description": "Um material digital cheio de atividades, jogos e versículos bíblicos para fixar a Palavra no coração das crianças de forma leve e divertida.",
+    "eyebrow": "MATERIAL DIGITAL PARA FAMÍLIAS CRISTÃS",
+    "cta": "Quero garantir agora",
+    "heroImage": "upload-1793063399099-1.jpg"
   },
   "collections": {
     "benefits": [
       {
         "id": "1",
-        "title": "Diagnóstico do seu negócio",
-        "description": "Entenda onde estão as oportunidades."
+        "title": "Memoriza Versículos com Alegria",
+        "description": "Cards e desafios lúdicos que fixam a Palavra no coração das crianças, do jeito que elas aprendem melhor: brincando."
       },
       {
         "id": "2",
-        "title": "Plano de ação objetivo",
-        "description": "Prioridades claras para sua próxima fase."
+        "title": "Atividades para Toda Semana",
+        "description": "Conteúdo pronto para imprimir ou usar no tablet, com brincadeiras guiadas para cada momento em família."
       },
       {
         "id": "3",
-        "title": "Acompanhamento próximo",
-        "description": "Evolua com um processo que cabe na sua rotina."
+        "title": "Fé Vivida em Casa",
+        "description": "Momentos simples que aproximam pais e filhos de Deus, sem complicar a rotina da família."
       }
     ]
   }
