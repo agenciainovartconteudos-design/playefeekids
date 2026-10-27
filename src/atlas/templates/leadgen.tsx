@@ -10,6 +10,7 @@ import {
   Users,
   Gift,
   ShieldCheck,
+  Download,
 } from "lucide-react";
 import type { TemplateProps } from "../types";
 import { list } from "../types";
@@ -411,6 +412,7 @@ export default function Leadgen({ config }: TemplateProps) {
                 )
               }
             >
+              <Download size={18} />
               Baixar dados desta página em JSON
             </Button>
           </div>
