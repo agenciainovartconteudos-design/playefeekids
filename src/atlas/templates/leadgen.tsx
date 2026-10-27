@@ -8,6 +8,8 @@ import {
   Mail,
   Star,
   Users,
+  Gift,
+  ShieldCheck,
 } from "lucide-react";
 import type { TemplateProps } from "../types";
 import { list } from "../types";
@@ -21,6 +23,8 @@ import {
   useToast,
 } from "../shared/ui";
 import heroHighlight from "@/assets/upload-1793063399099-1.jpg";
+import offerBundle from "@/assets/offer-bundle.webp";
+import guaranteeSeal from "@/assets/guarantee-seal.png";
 import { supabase } from "@/integrations/supabase/client";
 export default function Leadgen({ config }: TemplateProps) {
   const [sent, setSent] = useState(false);
@@ -223,6 +227,54 @@ export default function Leadgen({ config }: TemplateProps) {
                 <p>{b.description}</p>
               </article>
             ))}
+          </div>
+        </section>
+        <section className="section" id="oferta">
+          <div className="offer-band" data-reveal>
+            <div className="offer-visual">
+              <img
+                src={offerBundle}
+                alt="Conjunto do material Play e Fé Kids: tablet com o app de atividades bíblicas, folhas para imprimir e livro de histórias"
+                className="offer-image"
+                loading="lazy"
+              />
+            </div>
+            <div className="offer-content">
+              <span className="eyebrow">{config.content.offerEyebrow}</span>
+              <h2>{config.content.offerTitle}</h2>
+              <p className="offer-description">{config.content.offerDescription}</p>
+              <div className="offer-price-row">
+                <span className="offer-price">{config.content.offerPrice}</span>
+                <span className="offer-price-old">{config.content.offerOriginalPrice}</span>
+              </div>
+              <span className="offer-installment">{config.content.offerInstallment}</span>
+              <div className="offer-bonuses">
+                {list(config, "bonuses").map((b) => (
+                  <div className="offer-bonus-item" key={b.id}>
+                    <Gift size={18} />
+                    <div>
+                      <h3>{b.title}</h3>
+                      <p>{b.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Button onClick={focusForm} className="full">
+                Quero garantir com essa oferta
+              </Button>
+              <div className="offer-guarantee">
+                <img
+                  src={guaranteeSeal}
+                  alt="Selo de garantia de satisfação de 7 dias"
+                  width={56}
+                  height={56}
+                />
+                <p>
+                  <ShieldCheck size={14} />
+                  {config.content.offerGuarantee}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
         <section className="section" id="como-funciona">

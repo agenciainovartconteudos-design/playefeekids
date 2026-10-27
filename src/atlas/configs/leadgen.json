@@ -24,7 +24,14 @@
     "description": "Um material digital cheio de atividades, jogos e versículos bíblicos para fixar a Palavra no coração das crianças de forma leve e divertida.",
     "eyebrow": "MATERIAL DIGITAL PARA FAMÍLIAS CRISTÃS",
     "cta": "Quero garantir agora",
-    "heroImage": "upload-1793063399099-1.jpg"
+    "heroImage": "upload-1793063399099-1.jpg",
+    "offerEyebrow": "OFERTA DE LANÇAMENTO",
+    "offerTitle": "Garanta hoje com condição especial de lançamento",
+    "offerDescription": "Acesso completo ao material Play e Fé Kids, com bônus exclusivos para quem garantir agora.",
+    "offerPrice": "R$ 37,90",
+    "offerOriginalPrice": "R$ 97,00",
+    "offerInstallment": "ou em até 3x de R$ 13,90 no cartão",
+    "offerGuarantee": "Garantia incondicional de 7 dias. Não amou? Devolvemos 100% do seu dinheiro, sem perguntas."
   },
   "collections": {
     "benefits": [
@@ -42,6 +49,23 @@
         "id": "3",
         "title": "Fé Vivida em Casa",
         "description": "Momentos simples que aproximam pais e filhos de Deus, sem complicar a rotina da família."
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "1",
+        "title": "E-book Orações para Dormir",
+        "description": "20 orações curtas para fazer parte da rotina da sua família antes de dormir."
+      },
+      {
+        "id": "2",
+        "title": "Pôsteres para Imprimir",
+        "description": "Cartazes coloridos com versículos para decorar o quarto do seu filho."
+      },
+      {
+        "id": "3",
+        "title": "Grupo de Apoio no WhatsApp",
+        "description": "Receba dicas semanais de atividades e converse com outras famílias."
       }
     ]
   }
