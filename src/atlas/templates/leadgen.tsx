@@ -25,7 +25,18 @@ import {
 import heroHighlight from "@/assets/upload-1793063399099-1.jpg";
 import offerBundle from "@/assets/offer-bundle.webp";
 import guaranteeSeal from "@/assets/guarantee-seal.png";
+import testimonialPhoto1 from "@/assets/testimonial-1.webp";
+import testimonialPhoto2 from "@/assets/testimonial-2.webp";
+import testimonialPhoto3 from "@/assets/testimonial-3.webp";
+import testimonialPhoto4 from "@/assets/testimonial-4.webp";
 import { supabase } from "@/integrations/supabase/client";
+
+const testimonialPhotos = [
+  testimonialPhoto1,
+  testimonialPhoto2,
+  testimonialPhoto3,
+  testimonialPhoto4,
+];
 export default function Leadgen({ config }: TemplateProps) {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -34,23 +45,7 @@ export default function Leadgen({ config }: TemplateProps) {
     document
       .getElementById("comprar")
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
-  const testimonials = [
-    {
-      name: "Camila Rodrigues",
-      role: "Mãe da Beatriz, 6 anos",
-      text: "Minha filha pede para fazer as atividades todo dia depois da escola. Ela já decorou 4 versículos sem esforço, brincando.",
-    },
-    {
-      name: "Thiago Almeida",
-      role: "Pai do Davi, 8 anos",
-      text: "Transformou nosso momento de família. Em 15 minutos por noite, meu filho aprende a Palavra e a gente se diverte junto.",
-    },
-    {
-      name: "Patrícia Souza",
-      role: "Mãe de gêmeos, 5 anos",
-      text: "Material lindo, fácil de usar no tablet e nas folhas impressas. Vale cada centavo pelo que trouxe para a nossa rotina.",
-    },
-  ];
+  const testimonials = list(config, "testimonials");
   return (
     <>
       <div className="lead-topbar">
@@ -325,26 +320,35 @@ export default function Leadgen({ config }: TemplateProps) {
             title="Famílias que já vivem esse momento especial."
           />
           <div className="three-grid">
-            {testimonials.map((t) => (
-              <article className="feature-card" data-reveal key={t.name}>
+            {testimonials.map((t, i) => (
+              <article className="feature-card" data-reveal key={t.id}>
                 <div className="inline" style={{ marginBottom: 18 }}>
-                  {Array.from({ length: 5 }).map((_, i) => (
+                  {Array.from({ length: 5 }).map((_, star) => (
                     <Star
-                      key={i}
+                      key={star}
                       size={16}
                       style={{ color: "var(--accent)", fill: "var(--accent)" }}
                     />
                   ))}
                 </div>
                 <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.8 }}>
-                  “{t.text}”
+                  “{t.description}”
                 </p>
                 <div className="inline" style={{ marginTop: 22 }}>
-                  <span className="avatar" style={{ width: 38, height: 38 }}>
-                    {t.name.charAt(0)}
-                  </span>
+                  <img
+                    src={testimonialPhotos[i % testimonialPhotos.length]}
+                    alt={`Foto de ${t.title}, cliente do Play e Fé Kids`}
+                    style={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                      flexShrink: 0,
+                    }}
+                    loading="lazy"
+                  />
                   <div>
-                    <h3 style={{ fontSize: 14 }}>{t.name}</h3>
+                    <h3 style={{ fontSize: 14 }}>{t.title}</h3>
                     <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 2 }}>
                       {t.role}
                     </p>
