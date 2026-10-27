@@ -86,6 +86,9 @@ export default function Leadgen({ config }: TemplateProps) {
                 Pensado para o dia a dia da família, sem complicar a rotina
               </li>
             </ul>
+            <div className="hero-buttons">
+              <Button onClick={focusForm}>Quero garantir meu acesso agora</Button>
+            </div>
             <div className="mini-proof">
               <Users size={16} />
               <span>
@@ -398,8 +401,8 @@ export default function Leadgen({ config }: TemplateProps) {
             ]}
           />
           <div style={{ textAlign: "center", marginTop: 32 }}>
-            <button
-              className="text-button"
+            <Button
+              variant="secondary"
               onClick={() =>
                 downloadText(
                   "play-e-fe-kids-dados.json",
@@ -409,7 +412,7 @@ export default function Leadgen({ config }: TemplateProps) {
               }
             >
               Baixar dados desta página em JSON
-            </button>
+            </Button>
           </div>
         </section>
       </main>
