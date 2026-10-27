@@ -60,6 +60,7 @@ export default function Leadgen({ config }: TemplateProps) {
           { label: "Benefícios", href: "#beneficios" },
           { label: "Como funciona", href: "#como-funciona" },
           { label: "Dúvidas", href: "#duvidas" },
+          { label: "Baixar dados", href: "/dados" },
         ]}
         cta="Quero garantir agora"
         onAction={focusForm}
