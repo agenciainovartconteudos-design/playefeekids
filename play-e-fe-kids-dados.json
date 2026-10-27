@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "templateId": "leadgen",
+  "locale": "pt-BR",
+  "branding": {
+    "name": "Play e Fé Kids",
+    "shortName": "PF",
+    "tagline": "FÉ QUE SE APRENDE BRINCANDO"
+  },
+  "theme": {
+    "mode": "light",
+    "accent": "#f0b429",
+    "accentText": "#15224a",
+    "background": "#eef3ff",
+    "surface": "#ffffff",
+    "text": "#101b36",
+    "muted": "#5b6b89",
+    "line": "#0f1f3d14",
+    "serif": false,
+    "radius": 16
+  },
+  "content": {
+    "headline": "Ensine seu filho a amar\na Palavra de Deus brincando",
+    "description": "Um material digital cheio de atividades, jogos e versículos bíblicos para fixar a Palavra no coração das crianças de forma leve e divertida.",
+    "eyebrow": "MATERIAL DIGITAL PARA FAMÍLIAS CRISTÃS",
+    "cta": "Quero garantir agora",
+    "heroImage": "upload-1793063399099-1.jpg",
+    "offerEyebrow": "OFERTA DE LANÇAMENTO",
+    "offerTitle": "Garanta hoje com condição especial de lançamento",
+    "offerDescription": "Acesso completo ao material Play e Fé Kids, com bônus exclusivos para quem garantir agora.",
+    "offerPrice": "R$ 37,90",
+    "offerOriginalPrice": "R$ 97,00",
+    "offerInstallment": "ou em até 3x de R$ 13,90 no cartão",
+    "offerGuarantee": "Garantia incondicional de 7 dias. Não amou? Devolvemos 100% do seu dinheiro, sem perguntas."
+  },
+  "collections": {
+    "benefits": [
+      {
+        "id": "1",
+        "title": "Memoriza Versículos com Alegria",
+        "description": "Cards e desafios lúdicos que fixam a Palavra no coração das crianças, do jeito que elas aprendem melhor: brincando."
+      },
+      {
+        "id": "2",
+        "title": "Atividades para Toda Semana",
+        "description": "Conteúdo pronto para imprimir ou usar no tablet, com brincadeiras guiadas para cada momento em família."
+      },
+      {
+        "id": "3",
+        "title": "Fé Vivida em Casa",
+        "description": "Momentos simples que aproximam pais e filhos de Deus, sem complicar a rotina da família."
+      }
+    ],
+    "bonuses": [
+      {
+        "id": "1",
+        "title": "E-book Orações para Dormir",
+        "description": "20 orações curtas para fazer parte da rotina da sua família antes de dormir."
+      },
+      {
+        "id": "2",
+        "title": "Pôsteres para Imprimir",
+        "description": "Cartazes coloridos com versículos para decorar o quarto do seu filho."
+      },
+      {
+        "id": "3",
+        "title": "Grupo de Apoio no WhatsApp",
+        "description": "Receba dicas semanais de atividades e converse com outras famílias."
+      }
+    ],
+    "testimonials": [
+      {
+        "id": "1",
+        "title": "Camila Rodrigues",
+        "role": "Mãe da Beatriz, 6 anos",
+        "description": "Minha filha pede para fazer as atividades todo dia depois da escola. Ela já decorou 4 versículos sem esforço, brincando."
+      },
+      {
+        "id": "2",
+        "title": "Thiago Almeida",
+        "role": "Pai do Davi, 8 anos",
+        "description": "Transformou nosso momento de família. Em 15 minutos por noite, meu filho aprende a Palavra e a gente se diverte junto."
+      },
+      {
+        "id": "3",
+        "title": "Patrícia Souza",
+        "role": "Mãe de gêmeos, 5 anos",
+        "description": "Material lindo, fácil de usar no tablet e nas folhas impressas. Vale cada centavo pelo que trouxe para a nossa rotina."
+      },
+      {
+        "id": "4",
+        "title": "Renata Figueiredo",
+        "role": "Mãe do Lucas, 7 anos",
+        "description": "Os jogos são tão divertidos que meu filho nem percebe que está aprendendo. Já virou parte da nossa rotina de todo dia."
+      },
+      {
+        "id": "5",
+        "title": "Marcos Vinícius",
+        "role": "Pai da Alice, 9 anos",
+        "description": "Procurava algo assim há tempos. Minha filha engajou de verdade e já recita os versículos para a família no domingo."
+      },
+      {
+        "id": "6",
+        "title": "Juliana Martins",
+        "role": "Mãe de três filhos",
+        "description": "Funciona até com idades diferentes ao mesmo tempo. Cada um brinca no seu ritmo e todos aprendem a Palavra juntos."
+      }
+    ]
+  }
+}
