@@ -776,16 +776,26 @@ export function downloadText(
   content: string,
   type = "text/plain;charset=utf-8",
 ) {
-  const url = URL.createObjectURL(new Blob([content], { type }));
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = name;
   a.rel = "noopener";
+  a.target = "_blank";
   a.style.display = "none";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  // Ambientes de preview em iframe (sandbox sem allow-downloads) bloqueiam o
+  // download disparado pelo clique no link. Abrir a URL numa nova aba
+  // contorna isso: o navegador trata o blob fora do iframe e permite salvar.
+  const opened = window.open(url, "_blank");
+  if (!opened) {
+    // Pop-up bloqueado: ao menos deixamos o conteúdo disponível para copiar.
+    window.location.href = url;
+  }
+  setTimeout(() => URL.revokeObjectURL(url), 15000);
 }
 export function exportCSV(
   name: string,
