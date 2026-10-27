@@ -49,6 +49,10 @@ export default function Leadgen({ config }: TemplateProps) {
   ];
   return (
     <>
+      <div className="lead-topbar">
+        <span className="live-dot" />
+        Mais de 500 famílias já garantiram o Play e Fé Kids — oferta de lançamento por tempo limitado.
+      </div>
       <WebsiteNav
         config={config}
         links={[
