@@ -21,6 +21,7 @@ import {
   FAQ,
   Badge,
   useToast,
+  downloadText,
 } from "../shared/ui";
 import heroHighlight from "@/assets/upload-1793063399099-1.jpg";
 import offerBundle from "@/assets/offer-bundle.webp";
@@ -396,6 +397,20 @@ export default function Leadgen({ config }: TemplateProps) {
               },
             ]}
           />
+          <div style={{ textAlign: "center", marginTop: 32 }}>
+            <button
+              className="text-button"
+              onClick={() =>
+                downloadText(
+                  "play-e-fe-kids-dados.json",
+                  JSON.stringify(config, null, 2),
+                  "application/json;charset=utf-8",
+                )
+              }
+            >
+              Baixar dados desta página em JSON
+            </button>
+          </div>
         </section>
       </main>
       <Footer config={config} onContact={focusForm} />
